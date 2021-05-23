@@ -18,12 +18,14 @@
     <h2>Dashboard Page</h2>
     <%
         session = request.getSession(false);
-        if( session != null ) {
+        if( session.getAttribute("username") != null ) {
             out.println(session.getId());
             out.println("<br/><br/>");
             out.println("Session Creation Date: " + new Date(session.getCreationTime()) );
             out.println("<br/><br/>");
             out.println("Welcome " + session.getAttribute("username"));
+        } else {
+            response.sendRedirect("login.jsp");
         }
     %>
 </body>
