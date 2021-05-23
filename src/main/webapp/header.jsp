@@ -4,5 +4,5 @@
 <a href="DepartmentServlet">Departments</a>
 
 <%
-    
+
 %>

@@ -16,6 +16,13 @@
     <%@ include file="header.jsp"%>
     </br>
 
+    <%
+        session = request.getSession(false);
+        if( session.getAttribute("username") == null ) {
+            response.sendRedirect("login.jsp");
+        }
+    %>
+
     <h2>Departments List</h2>
     <table border="1" cellpadding="10" cellspacing="0">
         <thead>
