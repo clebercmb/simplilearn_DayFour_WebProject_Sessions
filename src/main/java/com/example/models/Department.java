@@ -1,4 +1,4 @@
-package com.models;
+package com.example.models;
 
 public class Department {
     private int deptId;

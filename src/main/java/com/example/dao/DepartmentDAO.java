@@ -1,6 +1,6 @@
-package com.exemple.dao;
+package com.example.dao;
 
-import com.models.Department;
+import com.example.models.Department;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

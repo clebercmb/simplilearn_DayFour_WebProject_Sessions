@@ -1,14 +1,13 @@
-package com.exemple.web;
+package com.example.web;
 
-import com.exemple.dao.DepartmentDAO;
-import com.models.Department;
+import com.example.dao.DepartmentDAO;
+import com.example.models.Department;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "DepartmentServlet", value = "/DepartmentServlet")
