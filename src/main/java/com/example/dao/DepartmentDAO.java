@@ -60,7 +60,6 @@ public class DepartmentDAO {
 
     public void insertDepartment(Department department) {
         System.out.println(department);
-
         try {
 
             connect();
@@ -77,7 +76,21 @@ public class DepartmentDAO {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-
     }
+
+    public void deleteDepartment(int id) {
+        System.out.println("DepartmentDAO.deleteDepartment= " + id);
+        try {
+
+            connect();
+            PreparedStatement statement = jdbcConnection.prepareStatement("DELETE FROM  departments where deptId = (?)");
+            statement.setInt(1,  id);
+            int rows = statement.executeUpdate();
+            jdbcConnection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
 }

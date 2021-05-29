@@ -51,7 +51,7 @@ show databases;
 use trainingdb;
 
 create table departments
-    (deptid int primary key auto_increment,
+    (deptid int primary key auto_incremdepartmentsent,
     deptname varchar(200),
     deptlocation varchar(200));
     

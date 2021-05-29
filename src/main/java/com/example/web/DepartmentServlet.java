@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "DepartmentServlet", value = {"/DepartmentServlet", "/newDepartment", "/insertDepartment", "/deleteDepartment", "/listDepartment"})
 public class DepartmentServlet extends HttpServlet {
@@ -57,15 +58,17 @@ public class DepartmentServlet extends HttpServlet {
     private void deleteDepartment(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("Deleting department here");
         PrintWriter out = response.getWriter();
-        out.println("Deleting department here");
-        int id = Integer.parseInt(request.getParameter("deptId"));
+
+        String[] queryString = request.getQueryString().trim().split("=");
+        System.out.println(">>> deleting deptId="+ queryString[1]);
+        String deptId= queryString[1];
+
+        departmentDAO.deleteDepartment(Integer.parseInt(deptId));
+        response.sendRedirect("listDepartment");
 
     }
 
     private void insertDepartment(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        //PrintWriter out = response.getWriter();
-        //out.println("Inserting new Department here");
-        System.out.println(">>insertDepartment");
         Department department = new Department();
         department.setDeptName(request.getParameter("deptName"));
         department.setDeptLocation(request.getParameter("deptLocation"));
@@ -90,4 +93,6 @@ public class DepartmentServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("departments.jsp");
         dispatcher.forward(request, response);
     }
+
+
 }
