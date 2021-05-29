@@ -23,6 +23,8 @@
         }
     %>
 
+    <br/><br/><br/>
+    <a href="<%=request.getContextPath()%>/newDepartment">Add New Department</a>
     <h2>Departments List</h2>
     <table border="1" cellpadding="10" cellspacing="0">
         <thead>
@@ -30,6 +32,7 @@
                 <th>Department Id</th>
                 <th>Department Name</th>
                 <th>Department Location</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +41,9 @@
                     <td><c:out value="${dept.deptId}"/></td>
                     <td><c:out value="${dept.deptName}"/></td>
                     <td><c:out value="${dept.deptLocation   }"/></td>
+                    <td>
+                        <a href="<%=request.getContextPath()%>/deleteDepartment?dept=<c:out value="${dept.deptId}"/>">Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>

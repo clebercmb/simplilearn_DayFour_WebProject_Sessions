@@ -3,6 +3,3 @@
 <a href="dashboard.jsp">Dashboard</a>
 <a href="DepartmentServlet">Departments</a>
 
-<%
-
-%>
